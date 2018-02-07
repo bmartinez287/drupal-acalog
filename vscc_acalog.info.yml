@@ -1,0 +1,10 @@
+name: VSCC Acalog Module
+description: Pulls catalog content from Acalog
+package: Custom
+
+type: module
+core: 8.x
+
+dependencies:
+  - drupal:node
+  - drupal:block

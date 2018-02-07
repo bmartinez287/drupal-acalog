@@ -1,0 +1,35 @@
+<div class="panel-group panel-group--style-2" id="accordion-programs" role="tablist" aria-multiselectable="true">
+
+  {% set counter = 0 %}
+  {% for degreeName in degrees %}
+    
+    {% if counter == 0  %}
+      <h2>For students planning to enter the job market immediately upon graduation:</h2>
+    {% elseif counter == 2 %}
+      <br><br><h2>For students planning to transfer to a four-year college or university:</h2>
+    {% endif %}
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading panel-heading--trigger-icon" role="tab" id="heading{{counter}}">
+        <div class="panel-title">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion-block" href="#collapse{{counter}}" aria-expanded="true" aria-controls="collapse{{counter}}">
+            {{degreeName}}
+          </a>
+        </div>
+      </div>
+      <div id="collapse{{counter}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{counter}}">
+        <div class="panel-body">
+          <ul>
+          {% for key, program in programs[counter] %}
+            <li><a href="/academics/{{program.id}}">{{program.name}}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    {% set counter = counter + 1 %}
+  {% endfor %}
+    
+</div>

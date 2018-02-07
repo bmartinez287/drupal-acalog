@@ -1,0 +1,9 @@
+acalog-lib:
+  css:
+    component:
+      https://catalog.volstate.edu/widget-api/widget-api.min.css: { type: external, minified: true }
+  js:
+    https://catalog.volstate.edu/widget-api/widget-api.min.js: { type: external, minified: true }
+    js/acalog.min.js: {}
+  dependencies:
+    - core/jquery

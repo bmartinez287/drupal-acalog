@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * gets the current catalog ID from Acalog
+ *
+ */
+function getCatalogID() {
+
+  // query Acalog to get the ID of the current catalog
+  $request_url = 'http://volstate.apis.acalog.com/v1/content?key=XXXXXXXXX&format=xml&method=getCatalogs';
+  $client = new \GuzzleHttp\Client();
+  
+  try {
+  
+    $response = $client->request('GET', $request_url, [
+        'headers' => ['Accept' => 'application/xml'],
+        'connect_timeout' => 5
+    ])->getBody()->getContents();
+  
+    $xml = simplexml_load_string($response);
+    foreach ($xml->catalog[0]->attributes() as $a => $b) {    
+      $catalogID = str_replace('acalog-catalog-','',$b);
+    }
+  
+  // error connecting to Acalog
+  } catch (RequestException $e) {
+    $catalogID = 0;
+  }
+
+  return $catalogID;
+
+}
+
+/**
+ * use Twig template to display Degrees & Certificates Block
+ *
+ */
+function vscc_acalog_theme($existing, $type, $theme, $path){
+  return [
+    'vscc_acalog' =>
+    array(
+      'variables' => array(
+        'title' => 'Degrees & Certificates',
+        'markup' => null,
+        'degrees' => null,
+        'programs' => null,
+        ), 
+        'template' => 'block--DegreesBlock'
+      ),
+    'vscc_program' =>
+    array(
+      'variables' => array(
+        'markup' => null,
+        'catalogID' => null,
+        'programID' => null,
+        ), 
+        'template' => 'block--ProgramBlock'
+      ),
+    'vscc_alpha' =>
+    array(
+      'variables' => array(
+        'markup' => null,
+        'programs' => null,
+        ), 
+        'template' => 'block--AlphaBlock'
+      )
+
+    ];
+}

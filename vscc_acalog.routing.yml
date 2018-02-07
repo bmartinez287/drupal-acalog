@@ -1,0 +1,32 @@
+vscc_acalog.program:
+  path: '/academics/{programID}'
+  defaults:
+    _controller: '\Drupal\vscc_acalog\Controller\AcalogController::program'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      programID:
+        type: String
+
+vscc_acalog.page:
+  path: '/catalog/{pageName}'
+  defaults:
+    _controller: '\Drupal\vscc_acalog\Controller\AcalogController::page'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      pageName:
+        type: String
+        
+vscc_acalog.degree:
+  path: '/catalog/degree/{degreeName}'
+  defaults:
+    _controller: '\Drupal\vscc_acalog\Controller\AcalogController::degree'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      degreeName:
+        type: String

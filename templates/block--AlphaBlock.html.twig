@@ -1,0 +1,13 @@
+<form id="alpha-programs-form">
+
+  <label id="degree-list" class="visually-hidden">Select a Degree</label>
+  <select class="alpha-programs-dropdown" aria-labelledby="degree-list">
+    <option value="" aria-hidden="true">(Select a Degree)</option>
+    
+    {% for key, program in programs %}
+      <option value="/academics/{{program.id}}">{{program.name}}</option>
+    {% endfor %}
+  
+  </select><input type="submit" class="alpha-programs-button" value="View Degree">
+      
+</form>
