@@ -7,7 +7,7 @@
 function getCatalogID() {
 
   // query Acalog to get the ID of the current catalog
-  $request_url = 'http://volstate.apis.acalog.com/v1/content?key=XXXXXXXXX&format=xml&method=getCatalogs';
+  $request_url = 'http://sitename.apis.acalog.com/v1/content?key=XXXXXXXXX&format=xml&method=getCatalogs';
   $client = new \GuzzleHttp\Client();
   
   try {

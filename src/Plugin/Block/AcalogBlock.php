@@ -37,7 +37,7 @@ class AcalogBlock extends BlockBase {
       $output = '';
           
       // set the Acalog query URL
-      $request_url = 'http://volstate.apis.acalog.com/v1/search/programs?key=XXXXXXXXX&format=xml&method=search&catalog=' . $catalogID . '&query=parent%3A%22' . $divisionName . '%22&options[limit]=100'; 
+      $request_url = 'http://sitename.apis.acalog.com/v1/search/programs?key=XXXXXXXXX&format=xml&method=search&catalog=' . $catalogID . '&query=parent%3A%22' . $divisionName . '%22&options[limit]=100'; 
       
       // use Guzzle to query programs from Acalog
       $client = new Client();

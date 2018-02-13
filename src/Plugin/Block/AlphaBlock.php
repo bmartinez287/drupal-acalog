@@ -21,7 +21,7 @@ class AlphaBlock extends BlockBase {
   /**
    * {@inheritdoc}
    * creates an alphabetical degrees dropdown listing
-   * http://beta.volstate.edu/academics/programs
+   * http://beta.sitename.edu/academics/programs
    */
   
   public function build() {
@@ -39,7 +39,7 @@ class AlphaBlock extends BlockBase {
       $programsArr = array();
           
       // build dropdown list of programs
-      $request_url = 'http://volstate.apis.acalog.com/v1/search/programs?key=XXXXXXXXX&format=xml&method=listing&catalog=24&options[sort]=alpha&options[limit]=200';
+      $request_url = 'http://sitename.apis.acalog.com/v1/search/programs?key=XXXXXXXXX&format=xml&method=listing&catalog=24&options[sort]=alpha&options[limit]=200';
       
       try {
         $response = $client->request('GET', $request_url, [
@@ -55,7 +55,7 @@ class AlphaBlock extends BlockBase {
       
       // error connecting to Acalog
       } catch (RequestException $e) {
-        $output = '<h4>We are unable to load the program information at this time. Please visit <a href="http://catalog.volstate.edu/">our catalog</a>.</h4>';
+        $output = '<h4>We are unable to load the program information at this time. Please visit <a href="http://catalog.sitename.edu/">our catalog</a>.</h4>';
       }
           
       // return output (uses block--AlphaBlock.html.twig template)

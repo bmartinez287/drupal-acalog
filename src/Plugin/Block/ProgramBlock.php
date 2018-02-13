@@ -42,7 +42,7 @@ class ProgramBlock extends BlockBase {
       $client = new Client();
   
       // query the program ID from Acalog
-      $request_url = 'http://volstate.apis.acalog.com/v1/search/programs?key=XXXXXXXXX&format=xml&method=search&catalog=24&query="' . $programName . '"';     
+      $request_url = 'http://sitename.apis.acalog.com/v1/search/programs?key=XXXXXXXXX&format=xml&method=search&catalog=24&query="' . $programName . '"';     
       try {
         $response = $client->request('GET', $request_url, [
           'headers' => ['Accept' => 'application/xml'],
