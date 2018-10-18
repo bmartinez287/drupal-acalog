@@ -9,7 +9,7 @@
 
   $(function () {
     $('.acalog').acalogWidgetize({
-      gateway: 'http://catalog.volstate.edu'
+      gateway: 'https://catalog.volstate.edu'
     });
   });
 })(jQuery);

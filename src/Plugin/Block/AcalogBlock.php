@@ -37,7 +37,7 @@ class AcalogBlock extends BlockBase {
       $output = '';
           
       // set the Acalog query URL
-      $request_url = 'http://sitename.apis.acalog.com/v1/search/programs?key=XXXXXXXXX&format=xml&method=search&catalog=' . $catalogID . '&query=parent%3A%22' . $divisionName . '%22&options[limit]=100'; 
+      $request_url = 'http://volstate.apis.acalog.com/v1/search/programs?key=' . API_KEY . '&format=xml&method=search&catalog=' . $catalogID . '&query=parent%3A%22' . $divisionName . '%22&options[limit]=100'; 
       
       // use Guzzle to query programs from Acalog
       $client = new Client();
@@ -61,7 +61,7 @@ class AcalogBlock extends BlockBase {
         $output = $output . '<div class="row><div class="col-sm-6">';
         $output = $output . '<ul>';
         foreach ($xml->xpath('//catalog/search/results/result') as $program) {
-          $output = $output . '<li><a href="/academics/' . $program->id . '">' . trim($program->name) . '</a></li>';
+          $output = $output . '<li><a href="https://catalog.volstate.edu/preview_program.php?catoid=' . $catalogID . '&poid=' . $program->id . '">' . trim($program->name) . '</a></li>';
           
           // display programs in two equal columns
           if ($x == $half) {

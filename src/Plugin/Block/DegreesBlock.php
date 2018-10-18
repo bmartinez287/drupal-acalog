@@ -21,7 +21,7 @@ class DegreesBlock extends BlockBase {
   /**
    * {@inheritdoc}
    * creates the Degrees & Certificates accordion page
-   * http://beta.sitename.edu/academics/programs
+   * /academics/programs
    */
   
   public function build() {
@@ -43,7 +43,7 @@ class DegreesBlock extends BlockBase {
       
       // loop through the degree types
       foreach ($degreeArr as $degreeType) {
-        $request_url = 'http://sitename.apis.acalog.com/v1/search/programs?key=XXXXXXXXX&format=xml&method=search&catalog=' . $catalogID . '&query=degreetype%3A%22' . $degreeType . '%22&options[limit]=100';
+        $request_url = 'http://volstate.apis.acalog.com/v1/search/programs?key=' . API_KEY . '&format=xml&method=search&catalog=' . $catalogID . '&query=degreetype%3A%22' . $degreeType . '%22&options[limit]=100';
         
         try {
           $response = $client->request('GET', $request_url, [
@@ -59,7 +59,7 @@ class DegreesBlock extends BlockBase {
         
         // error connecting to Acalog
         } catch (RequestException $e) {
-          $output = '<h4>We are unable to load the program information at this time. Please visit <a href="http://catalog.sitename.edu/">our catalog</a>.</h4>';
+          $output = '<h4>We are unable to load the program information at this time. Please visit <a href="http://catalog.volstate.edu/">our catalog</a>.</h4>';
         }
         
         $counter = $counter + 1;
@@ -70,6 +70,7 @@ class DegreesBlock extends BlockBase {
         '#theme' => 'vscc_acalog',
         '#type' => 'markup',
         '#markup' => $output,
+        '#catalogID' => $catalogID,
         '#degrees' => $degreeArr,
         '#programs' => $programsArr,
         '#title' => 'Degrees & Certificates',

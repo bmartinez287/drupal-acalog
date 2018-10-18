@@ -22,7 +22,8 @@
         <div class="panel-body">
           <ul>
           {% for key, program in programs[counter] %}
-            <li><a href="/academics/{{program.id}}">{{program.name}}</a></li>
+            <li><a href="https://catalog.volstate.edu/preview_program.php?catoid={{catalogID}}&poid={{program.id}}">{{program.name}}</a></li>
+            <!--<li><a href="/academics/{{program.id}}">{{program.name}}</a></li>-->
           {% endfor %}
           </ul>
         </div>

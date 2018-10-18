@@ -5,7 +5,8 @@
     <option value="" aria-hidden="true">(Select a Degree)</option>
     
     {% for key, program in programs %}
-      <option value="/academics/{{program.id}}">{{program.name}}</option>
+      <!--<option value="/academics/{{program.id}}">{{program.name}}</option>-->
+      <option value="https://catalog.volstate.edu/preview_program.php?catoid={{catalogID}}&poid={{program.id}}">{{program.name}}</option>
     {% endfor %}
   
   </select><input type="submit" class="alpha-programs-button" value="View Degree">

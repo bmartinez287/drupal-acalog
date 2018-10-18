@@ -20,7 +20,7 @@ class AcalogController extends ControllerBase {
     
       $build['program'] = [
       '#markup' => '
-        <div class="catalog-print"><a href="//catalog.sitename.edu/preview_program.php?catoid=' . $catalogID . '&poid=' . $programID . '&print" target="_blank"><i class="fa fa-print fa-2x" aria-hidden="true" title="print"></i><span class="sr-only">print</span></a></div>
+        <div class="catalog-print"><a href="//catalog.volstate.edu/preview_program.php?catoid=' . $catalogID . '&poid=' . $programID . '&print" target="_blank"><i class="fa fa-print fa-2x" aria-hidden="true" title="print"></i><span class="sr-only">print</span></a></div>
         <div class="acalog" data-acalog-data="programs" data-acalog-catalog-legacy-id="' . $catalogID . '" data-acalog-program-legacy-id="' . $programID . '">Loading...</div>',
     ];
     

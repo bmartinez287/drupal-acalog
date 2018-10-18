@@ -1,6 +1,6 @@
 name: VSCC Acalog Module
-description: Pulls catalog content from Acalog
-package: Custom
+description: Pulls catalog content from Acalog widget
+package: VSCC
 
 type: module
 core: 8.x
